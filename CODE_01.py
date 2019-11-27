@@ -266,65 +266,44 @@ def main():
         sTLCreator1.OutputFile = f"D:\\CAD WORKING DIRECTORY\\BULK_DATA\\\Kayak_{str(value1)}.stl"
 
         # Adding Bodies to STL export:
-        objects1 = [NXOpen.NXObject.Null] * 17
+        objects1 = [NXOpen.NXObject.Null] * 15
 
-        # Bulk head 1, 2, 3, 4
+        # Thigh braces
+        # body5 = workPart.Bodies.FindObject("EXTRUDE(131)")
+        # objects1[4] = body5
+        # body6 = workPart.Bodies.FindObject("Mirror Feature(134:1A:1A)")
+        # objects1[5] = body6
+
         body1 = workPart.Bodies.FindObject("EXTRUDE(43)")
         objects1[0] = body1
-        if hatch != 7:
-            body2 = workPart.Bodies.FindObject("EXTRUDE(44)")
-            objects1[1] = body2
+        body2 = workPart.Bodies.FindObject("EXTRUDE(44)")
+        objects1[1] = body2
         body3 = workPart.Bodies.FindObject("EXTRUDE(45)")
         objects1[2] = body3
         body4 = workPart.Bodies.FindObject("EXTRUDE(46)")
         objects1[3] = body4
-
-        # Thigh braces
-         # if thigh_brace:
-            # body5 = workPart.Bodies.FindObject("EXTRUDE(131)")
-            # objects1[4] = body5
-            # body6 = workPart.Bodies.FindObject("Mirror Feature(134:1A:1A)")
-            # objects1[5] = body6
-
-        # RHS Hatch
-        if hatch == [2, 4, 6]:
-            body7 = workPart.Bodies.FindObject("EXTRUDE(55)")
-            objects1[6] = body7
-
-        # LHS Hatch
-        if hatch == [1, 3, 5]:
-            body8 = workPart.Bodies.FindObject("EXTRUDE(61)")
-            objects1[7] = body8
-            body9 = workPart.Bodies.FindObject("EXTRUDE(63)")
-            objects1[8] = body9
-
-        # Front hatch
-        if hatch == [5, 6]:
-            body10 = workPart.Bodies.FindObject("EXTRUDE(79)")
-            objects1[9] = body10
-
-        # Rear Hatch
-        if hatch == [3, 4, 5, 6]:
-            body11 = workPart.Bodies.FindObject("EXTRUDE(72)")
-            objects1[10] = body11
-
-        # Skeg
-        if skeg:
-            body12 = workPart.Bodies.FindObject("EXTRUDE(93)")
-            objects1[11] = body12
-
-        # Rudder
-        if rudder:
-            body13 = workPart.Bodies.FindObject("EXTRUDE(100)")
-            objects1[12] = body13
-            body14 = workPart.Bodies.FindObject("EXTRUDE(101)")
-            objects1[13] = body14
-            body15 = workPart.Bodies.FindObject("EXTRUDE(102)")
-            objects1[14] = body15
-            body16 = workPart.Bodies.FindObject("EXTRUDE(107)")
-            objects1[15] = body16
-            body17 = workPart.Bodies.FindObject("EXTRUDE(108)")
-            objects1[16] = body17
+        body5 = workPart.Bodies.FindObject("EXTRUDE(55)")
+        objects1[4] = body5
+        body6 = workPart.Bodies.FindObject("EXTRUDE(61)")
+        objects1[5] = body6
+        body7 = workPart.Bodies.FindObject("EXTRUDE(63)")
+        objects1[6] = body7
+        body8 = workPart.Bodies.FindObject("EXTRUDE(79)")
+        objects1[7] = body8
+        body9 = workPart.Bodies.FindObject("EXTRUDE(72)")
+        objects1[8] = body9
+        body10 = workPart.Bodies.FindObject("EXTRUDE(93)")
+        objects1[9] = body10
+        body11 = workPart.Bodies.FindObject("EXTRUDE(100)")
+        objects1[10] = body11
+        body12 = workPart.Bodies.FindObject("EXTRUDE(101)")
+        objects1[11] = body12
+        body13 = workPart.Bodies.FindObject("EXTRUDE(102)")
+        objects1[12] = body13
+        body14 = workPart.Bodies.FindObject("EXTRUDE(107)")
+        objects1[13] = body14
+        body15 = workPart.Bodies.FindObject("EXTRUDE(108)")
+        objects1[14] = body15
 
         added1 = sTLCreator1.ExportSelectionBlock.Add(objects1)
 
